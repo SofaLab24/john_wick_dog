@@ -1,0 +1,23 @@
+VisualElement {
+}
+
+.unityButton {
+    font-size: 25px;
+    -unity-text-outline-color: rgba(130, 130, 130, 255);
+    color: rgba(72, 72, 72, 255);
+    -unity-font-style: bold;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
+    background-color: rgba(123, 163, 173, 255);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-left-width: 7px;
+    border-right-width: 7px;
+    border-top-width: 7px;
+    border-bottom-width: 7px;
+    border-left-color: rgba(123, 163, 173, 0.21);
+    border-right-color: rgba(123, 163, 173, 0.21);
+    border-top-color: rgba(123, 163, 173, 0.21);
+    border-bottom-color: rgba(123, 163, 173, 0.21);
+}
