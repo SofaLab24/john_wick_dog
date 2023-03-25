@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 7039184091368635842}
   - component: {fileID: 7685846082667755693}
   - component: {fileID: 1781249800}
-  - component: {fileID: 2023627816}
   m_Layer: 0
   m_Name: PlayerDogState
   m_TagString: Player
@@ -265,27 +264,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!320 &2023627816
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7039184091368635453}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 5107128318570669890, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 332955068065155980, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
-    value: {fileID: 0}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &7039184092014886836
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +370,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5291962843835666682}
   m_PrefabAsset: {fileID: 0}
+--- !u!320 &967551419414650630
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022003945152261547}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -110407741548362011, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
+    value: {fileID: 1366772407}
+  - key: {fileID: 2189719781716007693, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!95 &1366772407
 Animator:
   serializedVersion: 5
