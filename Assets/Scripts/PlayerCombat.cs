@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
     public WeaponType currentWeapon = WeaponType.None;
 
     private Movement _movement;
-    public GameObject projectile;
+    public GameObject projectile, explosive;
 
     public float throwForce = 100f;
 
@@ -26,6 +26,12 @@ public class PlayerCombat : MonoBehaviour
     
     public Vector3 worldPosition;
     Plane plane = new Plane(Vector3.up, 0);
+
+    public GameObject meeleAttack;
+
+    private bool isAttacking = false;
+    private bool attackSet = false;
+    public float meeleCooldown = 0.5f;
     
     void Start()
     {
@@ -36,59 +42,109 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (!stateController.isJohn)
         {
-            if (currentWeapon == WeaponType.Projectile)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                
-                ammoLeft--;
-                barsController.UpdateAmmo(ammoLeft);
-                GameObject go = Instantiate(projectile, spawnLocation.position,Quaternion.identity);
-                
-                
-                
-                float distance;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (plane.Raycast(ray, out distance))
+                if (currentWeapon == WeaponType.Projectile)
                 {
-                    worldPosition = ray.GetPoint(distance);
-                }
                 
-                Debug.Log(worldPosition);
-                go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
+                    ammoLeft--;
+                    barsController.UpdateAmmo(ammoLeft);
+                    GameObject go = Instantiate(projectile, spawnLocation.position,Quaternion.identity);
+                
+                
+                
+                    float distance;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (plane.Raycast(ray, out distance))
+                    {
+                        worldPosition = ray.GetPoint(distance);
+                    }
+                
+                    Debug.Log(worldPosition);
+                    go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
             
-                go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
-                Destroy(go, 3f);
-            }
-
-        }
-
-        if (Input.GetKey(KeyCode.Mouse0) && currentWeapon == WeaponType.Beam)
-        {
-            if (currentWeapon == WeaponType.Beam)
-            {
-
-                ammoLeft--;
-                barsController.UpdateAmmo(ammoLeft);
-                GameObject go = Instantiate(beam, spawnLocation);
-                float distance;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (plane.Raycast(ray, out distance))
-                {
-                    worldPosition = ray.GetPoint(distance);
+                    go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
+                    Destroy(go, 3f);
                 }
 
-                Debug.Log("held");
-                go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
-                Destroy(go, 3f);
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                if (currentWeapon == WeaponType.Explosive)
+                {
+                
+                    ammoLeft--;
+                    barsController.UpdateAmmo(ammoLeft);
+                    GameObject go = Instantiate(explosive, spawnLocation.position,Quaternion.identity);
+                
+                
+                
+                    float distance;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (plane.Raycast(ray, out distance))
+                    {
+                        worldPosition = ray.GetPoint(distance);
+                    }
+                
+                    Debug.Log(worldPosition);
+                    go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
+            
+                    go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
+                    Destroy(go, 3f);
+                }
+
+            }
+
+            if (Input.GetKey(KeyCode.Mouse0) && currentWeapon == WeaponType.Beam)
+            {
+                if (currentWeapon == WeaponType.Beam)
+                {
+
+                    ammoLeft--;
+                    barsController.UpdateAmmo(ammoLeft);
+                    GameObject go = Instantiate(beam, spawnLocation);
+                    float distance;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (plane.Raycast(ray, out distance))
+                    {
+                        worldPosition = ray.GetPoint(distance);
+                    }
+
+                    Debug.Log("held");
+                    go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
+                    Destroy(go, 3f);
+                }
+            }
+
+            if (ammoLeft<= 0)
+            {
+                currentWeapon = WeaponType.None;
             }
         }
-
-        if (ammoLeft<= 0)
+        else
         {
-            currentWeapon = WeaponType.None;
+            
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
+            {
+                StartCoroutine(JohnAttack());
+            }
         }
+        
+        
     }
+
+    IEnumerator JohnAttack()
+    {
+        isAttacking = true;
+        meeleAttack.SetActive(true);
+        yield return new WaitForSeconds(meeleCooldown);
+        isAttacking = false;
+        meeleAttack.SetActive(false);
+    }
+    
+    
 
     IEnumerator spawnFart()
     {

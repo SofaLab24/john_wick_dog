@@ -31,6 +31,29 @@ public class EnemyMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (other.gameObject.tag.Equals("Explosive"))
+        {
+            if (enemyStats.Health >= 50)
+            {
+                enemyStats.TakeDamage(50);
+            }
+            else
+            {
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+        }
+        if (other.gameObject.tag.Equals("Meele"))
+        {
+            if (enemyStats.Health >= 20)
+            {
+                enemyStats.TakeDamage(20);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
         
     }
 

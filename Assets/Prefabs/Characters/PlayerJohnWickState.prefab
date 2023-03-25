@@ -278,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   rotationSpeed: 0.01
+  movement: {x: 0, y: 0, z: 0}
 --- !u!143 &7738266561037779190
 CharacterController:
   m_ObjectHideFlags: 0
@@ -328,6 +329,7 @@ MonoBehaviour:
   currentWeapon: 0
   projectile: {fileID: 5909718428213077846, guid: 8caa5ae1356494f68914cb4d63ffd14e,
     type: 3}
+  explosive: {fileID: 0}
   throwForce: 100
   spawnLocation: {fileID: 62772052989833990}
   fartSpawn: {fileID: 62772054622558667}
@@ -339,3 +341,5 @@ MonoBehaviour:
   ammoLeft: 0
   stateController: {fileID: 0}
   worldPosition: {x: 0, y: 0, z: 0}
+  meeleAttack: {fileID: 0}
+  meeleCooldown: 0.5

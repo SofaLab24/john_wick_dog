@@ -7,6 +7,7 @@ public enum WeaponType
     None,
     Projectile,
     Beam,
+    Explosive,
     Meele,
     Gun
 }

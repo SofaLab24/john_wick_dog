@@ -8,6 +8,8 @@ TagManager:
   - Fart
   - UI
   - Beam
+  - Explosive
+  - Meele
   layers:
   - Default
   - TransparentFX

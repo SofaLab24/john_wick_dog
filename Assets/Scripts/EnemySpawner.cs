@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         StartCoroutine(Spawn());
+        StartCoroutine(increaseSpawnRate());
     }
 
     
@@ -37,5 +38,13 @@ public class EnemySpawner : MonoBehaviour
     Vector3 getRandomLocation()
     {
         return new Vector3(Random.Range(-20, 20), 1, Random.Range(-20, 20));
+    }
+
+    IEnumerator increaseSpawnRate()
+    {
+        
+        spawnAmount++;
+        yield return new WaitForSeconds(1);
+        StartCoroutine(increaseSpawnRate());
     }
 }
