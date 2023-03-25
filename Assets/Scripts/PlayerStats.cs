@@ -35,6 +35,10 @@ public class PlayerStats : MonoBehaviour
     public void LoseInsanity(int amount)
     {
         instanity -= amount;
+        if (instanity < 0)
+        {
+            instanity = 0;
+        }
         if (instanity<= 0)
         {
             stateController.isJohn = true;

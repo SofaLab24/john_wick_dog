@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
 
     public GameObject singedFart;
     public GameObject beam;
+    public GameObject slash;
 
     public float fartRate = 0.2f;
     public float fartLife = 5f;
@@ -135,13 +137,10 @@ public class PlayerCombat : MonoBehaviour
 
     IEnumerator JohnAttack()
     {
-       // stats.GetInsanity(2);
-        //isAttacking = true;
         anim.SetTrigger("Attack");
-        //meeleAttack.SetActive(true);
+        slash.SetActive(true);
         yield return new WaitForSeconds(meeleCooldown -1f);
-        //isAttacking = false;
-       // meeleAttack.SetActive(false);
+        slash.SetActive(false);
         yield return new WaitForSeconds(meeleCooldown);
         StartCoroutine(JohnAttack());
     }

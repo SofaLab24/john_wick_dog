@@ -124,6 +124,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 0056418b7c83a4d3fa021215f5b2bdab, type: 2}
+--- !u!1 &69728623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 69728623, guid: be9d9e4a9065a490b8fe87640536460c,
+    type: 3}
+  m_PrefabInstance: {fileID: 62772054639826770}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &502281458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -809,11 +815,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 69728623, guid: be9d9e4a9065a490b8fe87640536460c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 69728624, guid: be9d9e4a9065a490b8fe87640536460c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7738266561037779184, guid: be9d9e4a9065a490b8fe87640536460c,
         type: 3}
-      propertyPath: stats
+      propertyPath: slash
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 69728623}
     - target: {fileID: 7738266561037779184, guid: be9d9e4a9065a490b8fe87640536460c,
         type: 3}
       propertyPath: stateController
@@ -823,11 +837,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerJohnWickState
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738266561037779187, guid: be9d9e4a9065a490b8fe87640536460c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7738266561037779195, guid: be9d9e4a9065a490b8fe87640536460c,
         type: 3}
