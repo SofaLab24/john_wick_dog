@@ -14,10 +14,12 @@ public class Movement : MonoBehaviour
     public Animator anim;
 
     public bool enabled = true;
+    public bool isDogWalking = false;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        isDogWalking = false;
         //anim = GetComponent<Animator>();
     }
 
@@ -25,14 +27,16 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
+        anim.SetBool("isWalking", isDogWalking);
+        
         if (enabled)
         {
             // Get player input
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float verticalInput = Input.GetAxisRaw("Vertical");
 
-            if (horizontalInput == 0 && verticalInput == 0) anim.SetBool("isWalking", false);
-            else anim.SetBool("isWalking", true);
+            if (horizontalInput == 0 && verticalInput == 0) isDogWalking = false;
+            else isDogWalking = true;
 
             // Set player movement based on input
             movement = new Vector3(horizontalInput, 0f, verticalInput);
