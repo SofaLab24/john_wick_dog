@@ -6,6 +6,8 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     public WeaponType type;
+    public int insanityCost = 10;
+    public float weaponAmmo = 10;
     
 
     private void OnTriggerEnter(Collider other)
@@ -14,6 +16,9 @@ public class WeaponPickup : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {
             other.gameObject.GetComponent<PlayerCombat>().currentWeapon = type;
+            other.gameObject.GetComponent<PlayerCombat>().ammoLeft = weaponAmmo;
+            
+            other.gameObject.GetComponent<PlayerStats>().LoseInsanity(insanityCost);
             Destroy(gameObject);
         }
     }

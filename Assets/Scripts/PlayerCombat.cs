@@ -16,6 +16,8 @@ public class PlayerCombat : MonoBehaviour
 
     public float fartRate = 0.2f;
     public float fartLife = 5f;
+
+    public float ammoLeft;
     
     
     void Start()
@@ -34,6 +36,11 @@ public class PlayerCombat : MonoBehaviour
                 go.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
                 Destroy(go, 3f);
             }
+        }
+
+        if (ammoLeft<= 0)
+        {
+            currentWeapon = WeaponType.None;
         }
     }
 

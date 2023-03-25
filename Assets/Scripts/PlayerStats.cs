@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     [Range(0, 100)] 
     public int instanity = 100;
 
-    
+    public StateController stateController;
 
     public void TakeDamage(int damage)
     {
@@ -22,6 +22,20 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("GAY!!");
             Time.timeScale = 0f;
         }
+    }
+
+    public void LoseInsanity(int amount)
+    {
+        instanity -= amount;
+        if (instanity<= 0)
+        {
+            stateController.ChangeToJohn();
+        }
+    }
+
+    public void GetInsanity(int amount)
+    {
+        instanity += amount;
     }
 
     public void Heal(int value)
