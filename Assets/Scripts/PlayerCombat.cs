@@ -26,6 +26,12 @@ public class PlayerCombat : MonoBehaviour
     
     public Vector3 worldPosition;
     Plane plane = new Plane(Vector3.up, 0);
+
+    public GameObject meeleAttack;
+
+    private bool isAttacking = false;
+    private bool attackSet = false;
+    public float meeleCooldown = 0.5f;
     
     void Start()
     {
@@ -120,10 +126,25 @@ public class PlayerCombat : MonoBehaviour
         else
         {
             
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
+            {
+                StartCoroutine(JohnAttack());
+            }
         }
         
         
     }
+
+    IEnumerator JohnAttack()
+    {
+        isAttacking = true;
+        meeleAttack.SetActive(true);
+        yield return new WaitForSeconds(meeleCooldown);
+        isAttacking = false;
+        meeleAttack.SetActive(false);
+    }
+    
+    
 
     IEnumerator spawnFart()
     {

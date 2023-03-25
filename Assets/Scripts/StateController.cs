@@ -33,6 +33,7 @@ public class StateController : MonoBehaviour
         dogState.SetActive(false);
         johnState.SetActive(true);
         johnState.gameObject.transform.position = pos;
+        
         ChangeAllStats(true);
         cameraMovement.FindPlayer();
     }

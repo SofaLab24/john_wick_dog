@@ -9,13 +9,15 @@ public class WeaponPickup : MonoBehaviour
     public WeaponType type;
     public int insanityCost = 10;
     public int weaponAmmo = 10;
+    private StateController StateController;
     
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.name);
-        if (other.gameObject.tag.Equals("Player"))
+        if (other.gameObject.tag.Equals("Player") && !StateController.isJohn)
         {
+            
             other.gameObject.GetComponent<PlayerCombat>().currentWeapon = type;
             other.gameObject.GetComponent<PlayerCombat>().ammoLeft = weaponAmmo;
             
@@ -28,6 +30,7 @@ public class WeaponPickup : MonoBehaviour
 
     void Start()
     {
+        StateController = GameObject.FindWithTag("GameController").GetComponent<StateController>();
         barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
     }
 
