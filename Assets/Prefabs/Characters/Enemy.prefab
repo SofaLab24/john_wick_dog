@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropTypes:
   - {fileID: 7913862054134529282, guid: 12d896cf98257457a9318186251f9907, type: 3}
+  - {fileID: 6254000924416793187, guid: 739f2c6cd25ec4e869281aeddd0137b6, type: 3}
 --- !u!95 &-8815430511253623430
 Animator:
   serializedVersion: 5

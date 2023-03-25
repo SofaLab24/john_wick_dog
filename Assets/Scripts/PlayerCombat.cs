@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
     public WeaponType currentWeapon = WeaponType.None;
 
     private Movement _movement;
-    public GameObject projectile;
+    public GameObject projectile, explosive;
 
     public float throwForce = 100f;
 
@@ -46,6 +46,32 @@ public class PlayerCombat : MonoBehaviour
                     ammoLeft--;
                     barsController.UpdateAmmo(ammoLeft);
                     GameObject go = Instantiate(projectile, spawnLocation.position,Quaternion.identity);
+                
+                
+                
+                    float distance;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (plane.Raycast(ray, out distance))
+                    {
+                        worldPosition = ray.GetPoint(distance);
+                    }
+                
+                    Debug.Log(worldPosition);
+                    go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
+            
+                    go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
+                    Destroy(go, 3f);
+                }
+
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                if (currentWeapon == WeaponType.Explosive)
+                {
+                
+                    ammoLeft--;
+                    barsController.UpdateAmmo(ammoLeft);
+                    GameObject go = Instantiate(explosive, spawnLocation.position,Quaternion.identity);
                 
                 
                 

@@ -31,6 +31,18 @@ public class EnemyMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (other.gameObject.tag.Equals("Explosive"))
+        {
+            if (enemyStats.Health >= 50)
+            {
+                enemyStats.TakeDamage(50);
+            }
+            else
+            {
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+        }
         
     }
 
