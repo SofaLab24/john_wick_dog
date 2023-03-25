@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,6 +30,21 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.tag.Equals("Beam"))
+        {
+            if (enemyStats.Health >= 10)
+            {
+                enemyStats.TakeDamage(1);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void Start()

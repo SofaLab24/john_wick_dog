@@ -14,6 +14,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform spawnLocation, fartSpawn;
 
     public GameObject singedFart;
+    public GameObject beam;
 
     public float fartRate = 0.2f;
     public float fartLife = 5f;
@@ -31,10 +32,6 @@ public class PlayerCombat : MonoBehaviour
         barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
     }
 
-    
-    
-    
-    
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -47,11 +44,6 @@ public class PlayerCombat : MonoBehaviour
                 GameObject go = Instantiate(projectile, spawnLocation.position,Quaternion.identity);
                 
                 
-                // Ray ray = Camera.main.ScreenPointToRay(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                // if (Physics.Raycast(ray, out RaycastHit raycastHit))
-                // {
-                //     go.transform.LookAt(new Vector3(raycastHit.point.x, go.transform.position.y, raycastHit.point.z));
-                // }
                 
                 float distance;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -63,10 +55,28 @@ public class PlayerCombat : MonoBehaviour
                 Debug.Log(worldPosition);
                 go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
             
-                
-                
-                
                 go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
+                Destroy(go, 3f);
+            }
+
+            if (currentWeapon == WeaponType.Beam)
+            {
+
+                ammoLeft--;
+                barsController.UpdateAmmo(ammoLeft);
+                GameObject go = Instantiate(beam, spawnLocation);
+
+
+
+                float distance;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (plane.Raycast(ray, out distance))
+                {
+                    worldPosition = ray.GetPoint(distance);
+                }
+
+                go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
+
                 Destroy(go, 3f);
             }
         }
