@@ -25,23 +25,42 @@ public class StateController : MonoBehaviour
 
     public void ChangeToJohn()
     {
-        position = dogState.gameObject.transform.position;
-        
+        StartCoroutine(stopMovementJohn());
+        johnState.gameObject.GetComponent<Movement>().enabled = false;
         johnState.SetActive(true);
-        johnState.gameObject.transform.position = position;
+        
+        
+        position = dogState.transform.position;
+        johnState.transform.position = position;
         dogState.SetActive(false);
         
         ChangeAllStats(true);
         cameraMovement.FindPlayer();
+        //johnState.gameObject.GetComponent<Movement>().enabled = true;
     }
     public void ChangeToDog()
     {
+        StartCoroutine(stopMovementDog());
         position = johnState.gameObject.transform.position;
         dogState.SetActive(true);
         dogState.gameObject.transform.position = position;
         johnState.SetActive(false);
         ChangeAllStats(false);
         cameraMovement.FindPlayer();
+    }
+
+    IEnumerator stopMovementJohn()
+    {
+        johnState.gameObject.GetComponent<Movement>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        johnState.gameObject.GetComponent<Movement>().enabled = true;
+    }
+    
+    IEnumerator stopMovementDog()
+    {
+        dogState.gameObject.GetComponent<Movement>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        dogState.gameObject.GetComponent<Movement>().enabled = true;
     }
 
     void ChangeAllStats(bool isJohn)

@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
 
     public Animator anim;
 
+    public bool enabled = true;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -23,25 +25,29 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
-        // Get player input
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (horizontalInput == 0 && verticalInput == 0) anim.SetBool("isWalking", false);
-        else anim.SetBool("isWalking", true);
-
-        // Set player movement based on input
-        movement = new Vector3(horizontalInput, 0f, verticalInput);
-        controller.Move(movement.normalized * speed * Time.deltaTime);
-       
-        if (movement.magnitude > 0)
+        if (enabled)
         {
+            // Get player input
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
+
+            if (horizontalInput == 0 && verticalInput == 0) anim.SetBool("isWalking", false);
+            else anim.SetBool("isWalking", true);
+
+            // Set player movement based on input
+            movement = new Vector3(horizontalInput, 0f, verticalInput);
+            controller.Move(movement.normalized * speed * Time.deltaTime);
+       
+            if (movement.magnitude > 0)
+            {
             
-            //transform.rotation = Quaternion.LookRotation(movement);
+                //transform.rotation = Quaternion.LookRotation(movement);
             
             
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movement),   rotationSpeed);
-            timeCount = timeCount + Time.deltaTime;
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(movement),   rotationSpeed);
+                timeCount = timeCount + Time.deltaTime;
+            }
+
         }
         
     }
