@@ -21,6 +21,18 @@ public class EnemyMovement : MonoBehaviour
 
         StartCoroutine(Attack());
     }
+    private void OnParticleCollision(GameObject other)
+    {
+        if (enemyStats.Health >= 1)
+        {
+            enemyStats.TakeDamage(1);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+    }
 
     // Update is called once per frame
     void Update()

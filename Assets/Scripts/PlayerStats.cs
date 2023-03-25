@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class PlayerStats : MonoBehaviour
 
     [Range(0, 100)] 
     public int instanity = 100;
-    
+
     
 
     public void TakeDamage(int damage)
