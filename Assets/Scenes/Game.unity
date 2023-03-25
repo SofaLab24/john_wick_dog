@@ -803,7 +803,7 @@ PrefabInstance:
     - target: {fileID: 7738266561037779187, guid: be9d9e4a9065a490b8fe87640536460c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7738266561037779195, guid: be9d9e4a9065a490b8fe87640536460c,
         type: 3}
@@ -1096,22 +1096,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerDogState
       objectReference: {fileID: 0}
-    - target: {fileID: 7039184091368635453, guid: 97225842c6a364f7bac013fb78e72dcb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7039184091368635842, guid: 97225842c6a364f7bac013fb78e72dcb,
-        type: 3}
-      propertyPath: fartRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7039184091368635842, guid: 97225842c6a364f7bac013fb78e72dcb,
-        type: 3}
-      propertyPath: explosive
-      value: 
-      objectReference: {fileID: 4852615644000494834, guid: 8fe1b9193f35543da90e246a9c1811d9,
-        type: 3}
     - target: {fileID: 7039184091368635842, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
       propertyPath: stateController

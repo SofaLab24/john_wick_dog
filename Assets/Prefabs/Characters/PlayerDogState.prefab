@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 7685846082667755693}
   - component: {fileID: 1781249800}
   - component: {fileID: 2023627816}
-  - component: {fileID: 2023627817}
   m_Layer: 0
   m_Name: PlayerDogState
   m_TagString: Player
@@ -171,6 +170,7 @@ MonoBehaviour:
   speed: 13
   rotationSpeed: 0.05
   movement: {x: 0, y: 0, z: 0}
+  anim: {fileID: 1366772407}
 --- !u!143 &7039184091368635840
 CharacterController:
   m_ObjectHideFlags: 0
@@ -221,14 +221,15 @@ MonoBehaviour:
   currentWeapon: 0
   projectile: {fileID: 5909718428213077846, guid: 8caa5ae1356494f68914cb4d63ffd14e,
     type: 3}
-  explosive: {fileID: 0}
+  explosive: {fileID: 4852615644000494834, guid: 8fe1b9193f35543da90e246a9c1811d9,
+    type: 3}
   throwForce: 100
   spawnLocation: {fileID: 7039184092014886837}
   fartSpawn: {fileID: 7039184091159379889}
   singedFart: {fileID: 1887447500331485857, guid: 05b57e799d8ab47d589a3aee412aaf03,
     type: 3}
   beam: {fileID: 4053321782432214238, guid: fe4708e2b29e74da2ba7559d8367ad52, type: 3}
-  fartRate: 0.2
+  fartRate: 0.1
   fartLife: 3
   ammoLeft: 0
   stateController: {fileID: 0}
@@ -280,32 +281,11 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 5107128318570669890, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
-    value: {fileID: 2023627817}
+    value: {fileID: 0}
   - key: {fileID: 332955068065155980, guid: b27fa0e308e9b42fba8f8e79e8275b13, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
---- !u!95 &2023627817
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7039184091368635453}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eff3083329a134e40b47c687437be31b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7039184092014886836
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +386,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9776697984d494f0ea1bf4077942a40f, type: 3}
+--- !u!1 &5022003945152261547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9776697984d494f0ea1bf4077942a40f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5291962843835666682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1366772407
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022003945152261547}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c4eb1962c4bb4ee988fa644bb9694d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &5690981296912299793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9776697984d494f0ea1bf4077942a40f,
