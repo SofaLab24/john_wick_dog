@@ -10,12 +10,17 @@ public class PlayerCombat : MonoBehaviour
 
     public float throwForce = 100f;
 
-    public Transform spawnLocation;
+    public Transform spawnLocation, fartSpawn;
+
+    public GameObject singedFart;
+
+    public float fartRate = 0.2f;
+    public float fartLife = 5f;
     
     
     void Start()
     {
-        
+        StartCoroutine(spawnFart());
     }
 
     
@@ -30,5 +35,13 @@ public class PlayerCombat : MonoBehaviour
                 Destroy(go, 3f);
             }
         }
+    }
+
+    IEnumerator spawnFart()
+    {
+        yield return new WaitForSeconds(fartRate);
+        GameObject fart = Instantiate(singedFart, fartSpawn.position, Quaternion.identity);
+        Destroy(fart, fartLife);
+        StartCoroutine(spawnFart());
     }
 }

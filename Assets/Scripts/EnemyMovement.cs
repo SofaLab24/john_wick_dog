@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,25 @@ public class EnemyMovement : MonoBehaviour
     private EnemyStats enemyStats;
 
     private bool isAttacking = false;
-    
-    
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.tag.Equals("Fart"))
+        {
+            if (enemyStats.Health >= 10)
+            {
+                enemyStats.TakeDamage(10);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        
+    }
+
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -21,18 +39,7 @@ public class EnemyMovement : MonoBehaviour
 
         StartCoroutine(Attack());
     }
-    private void OnParticleCollision(GameObject other)
-    {
-        if (enemyStats.Health >= 1)
-        {
-            enemyStats.TakeDamage(1);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        
-    }
+    
 
     // Update is called once per frame
     void Update()

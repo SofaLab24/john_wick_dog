@@ -680,6 +680,11 @@ MonoBehaviour:
     type: 3}
   throwForce: 100
   spawnLocation: {fileID: 1290857611}
+  fartSpawn: {fileID: 1119924501}
+  singedFart: {fileID: 1887447500331485857, guid: 05b57e799d8ab47d589a3aee412aaf03,
+    type: 3}
+  fartRate: 0.2
+  fartLife: 3
 --- !u!1 &1786896999
 GameObject:
   m_ObjectHideFlags: 0
