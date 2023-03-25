@@ -272,6 +272,7 @@ MonoBehaviour:
   fartSpawn: {fileID: 6354984567419201312}
   singedFart: {fileID: 1887447500331485857, guid: 05b57e799d8ab47d589a3aee412aaf03,
     type: 3}
+  beam: {fileID: 0}
   fartRate: 0.2
   fartLife: 3
   ammoLeft: 0
