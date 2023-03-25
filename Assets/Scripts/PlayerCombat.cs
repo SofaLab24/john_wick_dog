@@ -18,6 +18,8 @@ public class PlayerCombat : MonoBehaviour
     public float fartLife = 5f;
 
     public float ammoLeft;
+
+    public StateController stateController;
     
     
     void Start()
@@ -47,8 +49,12 @@ public class PlayerCombat : MonoBehaviour
     IEnumerator spawnFart()
     {
         yield return new WaitForSeconds(fartRate);
-        GameObject fart = Instantiate(singedFart, fartSpawn.position, Quaternion.identity);
-        Destroy(fart, fartLife);
+        if (!stateController.isJohn)
+        {
+            GameObject fart = Instantiate(singedFart, fartSpawn.position, Quaternion.identity);
+            Destroy(fart, fartLife);
+        }
+        
         StartCoroutine(spawnFart());
     }
 }

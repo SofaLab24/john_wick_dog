@@ -9,12 +9,17 @@ public class CameraMovement : MonoBehaviour
     public Vector3 camOffset = new Vector3(0, 10, -8);
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        FindPlayer();
     }
 
     
     void Update()
     {
         transform.position = player.position + camOffset;
+    }
+
+    public void FindPlayer()
+    {
+        player = GameObject.FindWithTag("Player").transform;
     }
 }
