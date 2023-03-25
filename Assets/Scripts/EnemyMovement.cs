@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
 
     private bool isAttacking = false;
 
+    private Animator anim;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -52,7 +54,8 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         enemyStats = GetComponent<EnemyStats>();
-
+        anim = GetComponent<Animator>();
+        
         StartCoroutine(Attack());
     }
     
@@ -65,8 +68,15 @@ public class EnemyMovement : MonoBehaviour
         if (!isAttacking)
         {
             agent.SetDestination(target.position);
+            anim.SetBool("isAttacking", false);
+            anim.SetBool("isWalking", true);
         }
-        else agent.SetDestination(transform.position);
+        else
+        {
+            anim.SetBool("isAttacking", true);
+            anim.SetBool("isWalking", false);
+            agent.SetDestination(transform.position);
+        }
     }
 
     IEnumerator Attack()

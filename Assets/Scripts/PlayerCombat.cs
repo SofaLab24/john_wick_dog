@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     public BarsController barsController;
     public WeaponType currentWeapon = WeaponType.None;
 
+    private Movement _movement;
     public GameObject projectile;
 
     public float throwForce = 100f;
@@ -29,6 +30,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnFart());
+        _movement = GetComponent<Movement>();
         barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
     }
 
@@ -91,7 +93,7 @@ public class PlayerCombat : MonoBehaviour
     IEnumerator spawnFart()
     {
         yield return new WaitForSeconds(fartRate);
-        if (!stateController.isJohn)
+        if (!stateController.isJohn && _movement.movement.magnitude > 0)
         {
             GameObject fart = Instantiate(singedFart, fartSpawn.position, Quaternion.identity);
             Destroy(fart, fartLife);

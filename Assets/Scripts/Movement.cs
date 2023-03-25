@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     
     public float rotationSpeed = 0.01f;
     float timeCount = 0.0f;
+    public Vector3 movement;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class Movement : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         // Set player movement based on input
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
+        movement = new Vector3(horizontalInput, 0f, verticalInput);
         controller.Move(movement.normalized * speed * Time.deltaTime);
        
         if (movement.magnitude > 0)
