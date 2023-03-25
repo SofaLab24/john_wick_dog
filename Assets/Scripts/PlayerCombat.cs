@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (currentWeapon == WeaponType.Projectile)
             {
@@ -59,15 +59,16 @@ public class PlayerCombat : MonoBehaviour
                 Destroy(go, 3f);
             }
 
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0) && currentWeapon == WeaponType.Beam)
+        {
             if (currentWeapon == WeaponType.Beam)
             {
 
                 ammoLeft--;
                 barsController.UpdateAmmo(ammoLeft);
                 GameObject go = Instantiate(beam, spawnLocation);
-
-
-
                 float distance;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (plane.Raycast(ray, out distance))
@@ -75,8 +76,8 @@ public class PlayerCombat : MonoBehaviour
                     worldPosition = ray.GetPoint(distance);
                 }
 
+                Debug.Log("held");
                 go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
-
                 Destroy(go, 3f);
             }
         }
