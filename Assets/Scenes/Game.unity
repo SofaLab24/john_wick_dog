@@ -962,6 +962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7039184091368635842, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
+      propertyPath: fartRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039184091368635842, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
       propertyPath: stateController
       value: 
       objectReference: {fileID: 1818194786}
