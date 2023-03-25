@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
     private NavMeshAgent agent;
 
     private EnemyStats enemyStats;

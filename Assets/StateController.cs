@@ -33,6 +33,7 @@ public class StateController : MonoBehaviour
         dogState.SetActive(false);
         johnState.SetActive(true);
         johnState.gameObject.transform.position = pos;
+        ChangeAllStats(true);
         cameraMovement.FindPlayer();
     }
     public void ChangeToDog()
@@ -41,6 +42,30 @@ public class StateController : MonoBehaviour
         dogState.SetActive(true);
         johnState.SetActive(false);
         dogState.gameObject.transform.position = pos;
+        ChangeAllStats(false);
         cameraMovement.FindPlayer();
+    }
+
+    void ChangeAllStats(bool isJohn)
+    {
+        if (isJohn)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (var enemy in enemies)
+            {
+                enemy.GetComponent<EnemyMovement>().target = johnState.transform;
+                enemy.GetComponent<EnemyStats>().playerStats = johnStats;
+            }
+        }
+        else
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (var enemy in enemies)
+            {
+                enemy.GetComponent<EnemyMovement>().target = dogState.transform;
+                enemy.GetComponent<EnemyStats>().playerStats = dogStats;
+            }
+        }
+        
     }
 }

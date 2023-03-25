@@ -30,12 +30,27 @@ public class PlayerCombat : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             if (currentWeapon == WeaponType.Projectile)
             {
+                
+                ammoLeft--;
                 GameObject go = Instantiate(projectile, spawnLocation.position,Quaternion.identity);
-                go.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
+                
+                
+                // Ray ray = Camera.main.ScreenPointToRay(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                // if (Physics.Raycast(ray, out RaycastHit raycastHit))
+                // {
+                //     go.transform.LookAt(new Vector3(raycastHit.point.x, go.transform.position.y, raycastHit.point.z));
+                // }
+                var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                go.transform.LookAt(new Vector3(mousePos.x, go.transform.position.y, mousePos.z));
+            
+                
+                
+                
+                go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
                 Destroy(go, 3f);
             }
         }

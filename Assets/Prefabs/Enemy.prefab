@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6946070875048588750}
   - component: {fileID: 6946070875048588751}
   - component: {fileID: 4331808346967231144}
+  - component: {fileID: -8799918734565342127}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -135,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53452ff7fbf104684832178c133ac7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &4331808346967231144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +152,18 @@ MonoBehaviour:
   Health: 100
   damage: 10
   attackRate: 1
+  playerStats: {fileID: 0}
+--- !u!114 &-8799918734565342127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6946070875048588748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b498e67e7b84f417982d3845692c1063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTypes:
+  - {fileID: 7913862054134529282, guid: 12d896cf98257457a9318186251f9907, type: 3}

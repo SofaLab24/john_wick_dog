@@ -13,7 +13,8 @@ public class EnemyStats : MonoBehaviour
 
     public float attackRate = 1f;
 
-    private PlayerStats playerStats;
+    public PlayerStats playerStats;
+
 
     private void Start()
     {
@@ -23,7 +24,11 @@ public class EnemyStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        if (Health<=0) Destroy(gameObject);
+        if (Health <= 0)
+        {
+            GetComponent<EnemyDrops>().Drop();
+            Destroy(gameObject);
+        }
     }
 
     public void Heal(int value)
@@ -35,4 +40,6 @@ public class EnemyStats : MonoBehaviour
     {
         playerStats.TakeDamage(damage);
     }
+
+    
 }
