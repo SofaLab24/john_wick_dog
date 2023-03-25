@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -27,17 +28,20 @@ public class PlayerCombat : MonoBehaviour
     public Vector3 worldPosition;
     Plane plane = new Plane(Vector3.up, 0);
 
-    public GameObject meeleAttack;
+    //public GameObject meeleAttack;
 
     private bool isAttacking = false;
     private bool attackSet = false;
     public float meeleCooldown = 0.5f;
+    public Animator anim;
+    PlayerStats stats;
     
     void Start()
     {
         StartCoroutine(spawnFart());
         _movement = GetComponent<Movement>();
         barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
+        stats = GameObject.FindWithTag("GameController").GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -48,7 +52,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 if (currentWeapon == WeaponType.Projectile)
                 {
-                
+                    stats.LoseInsanity(2);
                     ammoLeft--;
                     barsController.UpdateAmmo(ammoLeft);
                     GameObject go = Instantiate(projectile, spawnLocation.position,Quaternion.identity);
@@ -62,19 +66,14 @@ public class PlayerCombat : MonoBehaviour
                         worldPosition = ray.GetPoint(distance);
                     }
                 
-                    Debug.Log(worldPosition);
                     go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
             
                     go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
                     Destroy(go, 3f);
                 }
-
-            }
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
                 if (currentWeapon == WeaponType.Explosive)
                 {
-                
+                    stats.LoseInsanity(3);
                     ammoLeft--;
                     barsController.UpdateAmmo(ammoLeft);
                     GameObject go = Instantiate(explosive, spawnLocation.position,Quaternion.identity);
@@ -88,7 +87,6 @@ public class PlayerCombat : MonoBehaviour
                         worldPosition = ray.GetPoint(distance);
                     }
                 
-                    Debug.Log(worldPosition);
                     go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
             
                     go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
@@ -125,10 +123,10 @@ public class PlayerCombat : MonoBehaviour
         }
         else
         {
-            
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
+            if (!isAttacking)
             {
                 StartCoroutine(JohnAttack());
+                isAttacking = true;
             }
         }
         
@@ -137,11 +135,15 @@ public class PlayerCombat : MonoBehaviour
 
     IEnumerator JohnAttack()
     {
-        isAttacking = true;
-        meeleAttack.SetActive(true);
+       // stats.GetInsanity(2);
+        //isAttacking = true;
+        anim.SetTrigger("Attack");
+        //meeleAttack.SetActive(true);
+        yield return new WaitForSeconds(meeleCooldown -1f);
+        //isAttacking = false;
+       // meeleAttack.SetActive(false);
         yield return new WaitForSeconds(meeleCooldown);
-        isAttacking = false;
-        meeleAttack.SetActive(false);
+        StartCoroutine(JohnAttack());
     }
     
     

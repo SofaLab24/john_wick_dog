@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     {
         
         spawnAmount++;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
         StartCoroutine(increaseSpawnRate());
     }
 }

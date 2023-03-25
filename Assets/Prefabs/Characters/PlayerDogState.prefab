@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 7039184091368635845}
   - component: {fileID: 7039184091368635841}
   - component: {fileID: 7039184091368635840}
-  - component: {fileID: 7039184091368635843}
   - component: {fileID: 7039184091368635842}
   - component: {fileID: 7685846082667755693}
   - component: {fileID: 1781249800}
@@ -188,22 +187,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.5, z: 0}
---- !u!114 &7039184091368635843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7039184091368635453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75e7d0e3c18944c79c8e2277cf58214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  instanity: 100
-  barsController: {fileID: 0}
-  stateController: {fileID: 0}
 --- !u!114 &7039184091368635842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +218,8 @@ MonoBehaviour:
   worldPosition: {x: 0, y: 0, z: 0}
   meeleAttack: {fileID: 0}
   meeleCooldown: 0.5
+  anim: {fileID: 0}
+  stats: {fileID: 0}
 --- !u!54 &7685846082667755693
 Rigidbody:
   m_ObjectHideFlags: 0

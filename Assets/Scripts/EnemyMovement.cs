@@ -17,9 +17,10 @@ public class EnemyMovement : MonoBehaviour
     private Animator anim;
 
 
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
+//        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag.Equals("Fart"))
         {
             if (enemyStats.Health >= 10)
@@ -43,19 +44,15 @@ public class EnemyMovement : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
-        if (other.gameObject.tag.Equals("Meele"))
-        {
-            if (enemyStats.Health >= 20)
-            {
-                enemyStats.TakeDamage(20);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        
         
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
+
 
     private void OnParticleCollision(GameObject other)
     {

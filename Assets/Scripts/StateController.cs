@@ -4,45 +4,42 @@ using UnityEngine;
 
 public class StateController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject dogState;
+    [SerializeField] private GameObject dogState;
 
     [SerializeField] private GameObject johnState;
 
     public bool isJohn;
 
-    private PlayerStats dogStats, johnStats;
+    private PlayerStats stats;
     public CameraMovement cameraMovement;
+
+    private Vector3 position;
+
     
     void Start()
     {
-        dogStats = dogState.GetComponent<PlayerStats>();
-        johnStats = johnState.GetComponent<PlayerStats>();
+        stats = GetComponent<PlayerStats>();
     }
 
     
-    void Update()
-    {
-        isJohn = dogStats.instanity <= 0;
-        
-    }
 
     public void ChangeToJohn()
     {
-        var pos = dogState.transform.position;
-        dogState.SetActive(false);
+        position = dogState.gameObject.transform.position;
+        
         johnState.SetActive(true);
-        johnState.gameObject.transform.position = pos;
+        johnState.gameObject.transform.position = position;
+        dogState.SetActive(false);
         
         ChangeAllStats(true);
         cameraMovement.FindPlayer();
     }
     public void ChangeToDog()
     {
-        var pos = johnState.transform.position;
+        position = johnState.gameObject.transform.position;
         dogState.SetActive(true);
+        dogState.gameObject.transform.position = position;
         johnState.SetActive(false);
-        dogState.gameObject.transform.position = pos;
         ChangeAllStats(false);
         cameraMovement.FindPlayer();
     }
@@ -55,7 +52,6 @@ public class StateController : MonoBehaviour
             foreach (var enemy in enemies)
             {
                 enemy.GetComponent<EnemyMovement>().target = johnState.transform;
-                enemy.GetComponent<EnemyStats>().playerStats = johnStats;
             }
         }
         else
@@ -64,7 +60,6 @@ public class StateController : MonoBehaviour
             foreach (var enemy in enemies)
             {
                 enemy.GetComponent<EnemyMovement>().target = dogState.transform;
-                enemy.GetComponent<EnemyStats>().playerStats = dogStats;
             }
         }
         

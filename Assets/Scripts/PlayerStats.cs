@@ -14,6 +14,12 @@ public class PlayerStats : MonoBehaviour
     public BarsController barsController;
     public StateController stateController;
 
+    private void Start()
+    {
+        barsController.UpdateSanityBar(instanity);
+        barsController.UpdateHealthBar(Health);
+    }
+
     public void TakeDamage(int damage)
     {
         Health -= damage;
@@ -31,6 +37,7 @@ public class PlayerStats : MonoBehaviour
         instanity -= amount;
         if (instanity<= 0)
         {
+            stateController.isJohn = true;
             stateController.ChangeToJohn();
         }
         barsController.UpdateSanityBar(instanity);
@@ -39,6 +46,17 @@ public class PlayerStats : MonoBehaviour
     public void GetInsanity(int amount)
     {
         instanity += amount;
+        if (instanity > 100)
+        {
+            instanity = 100;
+        }
+        
+        
+        if (instanity>= 100)
+        {
+            stateController.isJohn = false;
+            stateController.ChangeToDog();
+        }
         barsController.UpdateSanityBar(instanity);
     }
 

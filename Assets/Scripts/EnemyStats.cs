@@ -13,12 +13,14 @@ public class EnemyStats : MonoBehaviour
 
     public float attackRate = 1f;
 
-    public PlayerStats playerStats;
+    PlayerStats playerStats;
+    private StateController StateController;
 
 
     private void Start()
     {
-        playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        playerStats = GameObject.FindWithTag("GameController").GetComponent<PlayerStats>();
+        StateController = GameObject.FindWithTag("GameController").GetComponent<StateController>();
     }
 
     public void TakeDamage(int damage)
@@ -26,6 +28,10 @@ public class EnemyStats : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
+            if (StateController.isJohn)
+            {
+                playerStats.GetInsanity(5);
+            }
             GetComponent<EnemyDrops>().Drop();
             Destroy(gameObject);
         }

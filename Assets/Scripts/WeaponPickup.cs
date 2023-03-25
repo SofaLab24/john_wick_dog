@@ -14,7 +14,6 @@ public class WeaponPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.tag.Equals("Player") && !StateController.isJohn)
         {
             
@@ -23,7 +22,7 @@ public class WeaponPickup : MonoBehaviour
             
             barsController.ChangeWeapon(new Texture2D(256, 256), $"{type}", weaponAmmo);
             
-            other.gameObject.GetComponent<PlayerStats>().LoseInsanity(insanityCost);
+            //other.gameObject.GetComponent<PlayerStats>().LoseInsanity(insanityCost);
             Destroy(gameObject);
         }
     }
