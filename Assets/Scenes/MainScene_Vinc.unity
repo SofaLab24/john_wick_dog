@@ -232,11 +232,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overlay
       objectReference: {fileID: 0}
-    - target: {fileID: 8954540515238860033, guid: 548d759c343e4499ea6309a410de8c70,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8954540515238860047, guid: 548d759c343e4499ea6309a410de8c70,
         type: 3}
       propertyPath: m_RootOrder
@@ -498,36 +493,6 @@ PrefabInstance:
     - target: {fileID: 6981000087005808452, guid: 19831b8841cc241a5b034c9a646d9c5c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981000087005808453, guid: 19831b8841cc241a5b034c9a646d9c5c,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981000087005808453, guid: 19831b8841cc241a5b034c9a646d9c5c,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.5404917
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981000087005808453, guid: 19831b8841cc241a5b034c9a646d9c5c,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.5849056
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981000087005808453, guid: 19831b8841cc241a5b034c9a646d9c5c,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.17933428
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981000087005808454, guid: 19831b8841cc241a5b034c9a646d9c5c,
-        type: 3}
-      propertyPath: camOffset.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981000087005808454, guid: 19831b8841cc241a5b034c9a646d9c5c,
-        type: 3}
-      propertyPath: camOffset.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
