@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barsController: {fileID: 0}
-  currentWeapon: 0
+  currentWeapon: 1
   projectile: {fileID: 5909718428213077846, guid: 8caa5ae1356494f68914cb4d63ffd14e,
     type: 3}
   throwForce: 100
@@ -272,9 +272,10 @@ MonoBehaviour:
   fartSpawn: {fileID: 6354984567419201312}
   singedFart: {fileID: 1887447500331485857, guid: 05b57e799d8ab47d589a3aee412aaf03,
     type: 3}
+  beam: {fileID: 4053321782432214238, guid: fe4708e2b29e74da2ba7559d8367ad52, type: 3}
   fartRate: 0.2
   fartLife: 3
-  ammoLeft: 0
+  ammoLeft: 10
   stateController: {fileID: 0}
   worldPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &6354984567185357503
@@ -301,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6354984567185357503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.293, z: 0.745}
+  m_LocalPosition: {x: 0, y: 1.82, z: 0.745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
