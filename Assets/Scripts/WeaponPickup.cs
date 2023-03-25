@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
+    public BarsController barsController;
     public WeaponType type;
     public int insanityCost = 10;
-    public float weaponAmmo = 10;
+    public int weaponAmmo = 10;
     
 
     private void OnTriggerEnter(Collider other)
@@ -18,6 +19,8 @@ public class WeaponPickup : MonoBehaviour
             other.gameObject.GetComponent<PlayerCombat>().currentWeapon = type;
             other.gameObject.GetComponent<PlayerCombat>().ammoLeft = weaponAmmo;
             
+            barsController.ChangeWeapon(new Texture2D(256, 256), $"{type}", weaponAmmo);
+            
             other.gameObject.GetComponent<PlayerStats>().LoseInsanity(insanityCost);
             Destroy(gameObject);
         }
@@ -25,7 +28,7 @@ public class WeaponPickup : MonoBehaviour
 
     void Start()
     {
-        
+        barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
     }
 
     // Update is called once per frame

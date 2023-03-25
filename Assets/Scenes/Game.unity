@@ -205,6 +205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overlay
       objectReference: {fileID: 0}
+    - target: {fileID: 8954540515238860033, guid: 548d759c343e4499ea6309a410de8c70,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
     - target: {fileID: 8954540515238860047, guid: 548d759c343e4499ea6309a410de8c70,
         type: 3}
       propertyPath: m_RootOrder
@@ -1085,7 +1090,7 @@ PrefabInstance:
     - target: {fileID: 6354984566762463544, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
       propertyPath: ammoLeft
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6354984566762463544, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
@@ -1096,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 6354984566762463544, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
       propertyPath: currentWeapon
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6354984566762463544, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
@@ -1117,6 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c08dc76a714f4feabe8bf49e11b87d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsController: {fileID: 0}
   currentWeapon: 0
   projectile: {fileID: 5909718428213077846, guid: 8caa5ae1356494f68914cb4d63ffd14e,
     type: 3}
@@ -1129,6 +1135,7 @@ MonoBehaviour:
   fartLife: 3
   ammoLeft: 0
   stateController: {fileID: 1818194786}
+  worldPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7763320280441689688
 MonoBehaviour:
   m_ObjectHideFlags: 0

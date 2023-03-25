@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public BarsController barsController;
     public WeaponType currentWeapon = WeaponType.None;
 
     public GameObject projectile;
@@ -17,16 +18,22 @@ public class PlayerCombat : MonoBehaviour
     public float fartRate = 0.2f;
     public float fartLife = 5f;
 
-    public float ammoLeft;
+    public int ammoLeft;
 
     public StateController stateController;
     
+    public Vector3 worldPosition;
+    Plane plane = new Plane(Vector3.up, 0);
     
     void Start()
     {
         StartCoroutine(spawnFart());
+        barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
     }
 
+    
+    
+    
     
     void Update()
     {
@@ -36,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 
                 ammoLeft--;
+                barsController.UpdateAmmo(ammoLeft);
                 GameObject go = Instantiate(projectile, spawnLocation.position,Quaternion.identity);
                 
                 
@@ -44,8 +52,16 @@ public class PlayerCombat : MonoBehaviour
                 // {
                 //     go.transform.LookAt(new Vector3(raycastHit.point.x, go.transform.position.y, raycastHit.point.z));
                 // }
-                var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                go.transform.LookAt(new Vector3(mousePos.x, go.transform.position.y, mousePos.z));
+                
+                float distance;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (plane.Raycast(ray, out distance))
+                {
+                    worldPosition = ray.GetPoint(distance);
+                }
+                
+                Debug.Log(worldPosition);
+                go.transform.LookAt(new Vector3(worldPosition.x, go.transform.position.y, worldPosition.z));
             
                 
                 
