@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 69728623}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7738266561037779195}
@@ -542,6 +542,7 @@ MonoBehaviour:
   projectile: {fileID: 5909718428213077846, guid: 8caa5ae1356494f68914cb4d63ffd14e,
     type: 3}
   explosive: {fileID: 0}
+  ult: {fileID: 0}
   throwForce: 100
   spawnLocation: {fileID: 62772052989833990}
   fartSpawn: {fileID: 62772054622558667}
@@ -556,6 +557,8 @@ MonoBehaviour:
   worldPosition: {x: 0, y: 0, z: 0}
   meeleCooldown: 2
   anim: {fileID: 4185181287185826470}
+  smokeIcon: {fileID: 0}
+  johnIcon: {fileID: 0}
 --- !u!1001 &2449209933910456040
 PrefabInstance:
   m_ObjectHideFlags: 0
