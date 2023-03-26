@@ -50,6 +50,17 @@ MonoBehaviour:
     type: 3}
   spawnRate: 5
   spawnAmount: 2
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2075497994422576216
 MonoBehaviour:
   m_ObjectHideFlags: 0

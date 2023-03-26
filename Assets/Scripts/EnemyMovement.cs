@@ -83,7 +83,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isAttacking = Vector3.Distance(transform.position, target.position) < 1f;
+        isAttacking = Vector3.Distance(transform.position, target.position) < 1.5f;
 
         if (!isAttacking)
         {

@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     public float spawnRate = 1f;
     public int spawnAmount = 2;
+    public GameObject[] spawnPoints;
     
     void Start()
     {
@@ -37,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
 
     Vector3 getRandomLocation()
     {
-        return new Vector3(Random.Range(-20, 20), 1, Random.Range(-20, 20));
+        return spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
     }
 
     IEnumerator increaseSpawnRate()
