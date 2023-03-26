@@ -36,14 +36,15 @@ public class PlayerStats : MonoBehaviour
         {
             isNotDead = false;
             Debug.Log("GAY!!");
-            GameObject player = GameObject.FindWithTag("Player");
-            Instantiate(recall, player.transform.position, Quaternion.identity);
+            //GameObject player = GameObject.FindWithTag("Player");
+            //GameObject Go = Instantiate(recall, player.transform.position, Quaternion.identity);
+            //Destroy(Go, 8);
+            
             //////////////////// restart screen goes here(maybe)
-            // Time.timeScale = 0f;
+             Time.timeScale = 0f;
         }
         barsController.UpdateHealthBar(Health);
     }
-
     public void LoseInsanity(int amount)
     {
         instanity -= amount;

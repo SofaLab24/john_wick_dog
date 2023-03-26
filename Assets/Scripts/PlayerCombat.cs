@@ -152,6 +152,10 @@ public class PlayerCombat : MonoBehaviour
                 isAttacking = true;
             }
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            
+        }
         
         
     }
