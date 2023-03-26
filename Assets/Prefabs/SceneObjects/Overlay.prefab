@@ -62,3 +62,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca6b8093c9cb40ca837e42f60fc5da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deafScreen: {fileID: 2800000, guid: d5d819b83c216495b99e490ec7d727dc, type: 3}

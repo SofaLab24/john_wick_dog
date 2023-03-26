@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -28,6 +29,17 @@ public class PlayerStats : MonoBehaviour
         barsController.UpdateHealthBar(Health);
     }
 
+    public void Update()
+    {
+        if (!isNotDead)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         Health -= damage;
@@ -36,6 +48,7 @@ public class PlayerStats : MonoBehaviour
         {
             isNotDead = false;
             Debug.Log("GAY!!");
+            barsController.PlayerDied();
             //GameObject player = GameObject.FindWithTag("Player");
             //GameObject Go = Instantiate(recall, player.transform.position, Quaternion.identity);
             //Destroy(Go, 8);

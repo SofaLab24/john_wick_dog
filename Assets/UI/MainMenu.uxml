@@ -5,8 +5,8 @@
             <ui:Label text="JOHN WICK DOG" display-tooltip-when-elided="true" name="Title" style="width: 75%; top: 50%; -unity-text-align: upper-center; font-size: 55px; -unity-font-style: normal; color: rgb(185, 29, 156); -unity-font-definition: initial; -unity-font: url(&apos;project://database/Assets/UI/Fonts/SheepingCats-929Z.ttf?fileID=12800000&amp;guid=93ea083298b754b32bd70f58dbfaca80&amp;type=3#SheepingCats-929Z&apos;); -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
         </ui:VisualElement>
         <ui:VisualElement name="Mid" style="height: 70%; top: 0; position: relative; align-items: center;">
-            <ui:Button text="Let&apos;s Get Dogging" display-tooltip-when-elided="true" name="Start" class="unityButton" style="top: 25%; height: 20%; width: 45%;" />
-            <ui:Button text="Bye Dog :&apos;[" display-tooltip-when-elided="true" name="Exit" class="unityButton" style="height: 20%; width: 45%; top: 45%;" />
+            <ui:Button text="Let&apos;s Get Dogging" display-tooltip-when-elided="true" name="StartButton" class="unityButton" style="top: 25%; height: 20%; width: 45%;" />
+            <ui:Button text="Bye Dog :&apos;[" display-tooltip-when-elided="true" name="ExitButton" class="unityButton" style="height: 20%; width: 45%; top: 45%;" />
         </ui:VisualElement>
         <ui:VisualElement name="Bot" style="height: 20%; top: 0;" />
     </ui:VisualElement>

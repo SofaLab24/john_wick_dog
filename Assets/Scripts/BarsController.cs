@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class BarsController : MonoBehaviour
 {
+    public Texture2D deafScreen;
+    
     private int maxHealth;
     private int maxSanity;
     private int currentMaxAmmo;
@@ -31,6 +33,10 @@ public class BarsController : MonoBehaviour
         UpdateSanityBar(0);
     }
 
+    public void PlayerDied()
+    {
+        gameViewUI.rootVisualElement.Q<VisualElement>("Container").style.backgroundImage = deafScreen;
+    }
     public void UpdateHealthBar(int health)
     {
         VisualElement topHealth = healthBar.Q<VisualElement>("TopHealth");

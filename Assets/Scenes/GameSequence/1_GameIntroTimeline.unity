@@ -553,7 +553,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765893761}
-  m_LocalRotation: {x: 0.02894839, y: 0.95660114, z: -0.10202818, w: 0.27141586}
+  m_LocalRotation: {x: 0.028948389, y: 0.95660114, z: -0.102028176, w: 0.27141586}
   m_LocalPosition: {x: -6.97, y: 3.5, z: 14.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -950,8 +950,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b27fa0e308e9b42fba8f8e79e8275b13,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 9
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
@@ -997,6 +1003,48 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].key
+      value: 
+      objectReference: {fileID: -2627145819767126304, guid: 60d76faf12da9442eb6e5b99ce1c47b4,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[11].key
+      value: 
+      objectReference: {fileID: 3973255293388217058, guid: 60d76faf12da9442eb6e5b99ce1c47b4,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].key
+      value: 
+      objectReference: {fileID: 734459376989706396, guid: 60d76faf12da9442eb6e5b99ce1c47b4,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[13].key
+      value: 
+      objectReference: {fileID: 5481864547571643916, guid: 60d76faf12da9442eb6e5b99ce1c47b4,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[14].key
+      value: 
+      objectReference: {fileID: -4670088330636596994, guid: 60d76faf12da9442eb6e5b99ce1c47b4,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[15].key
+      value: 
+      objectReference: {fileID: -5213767415914416299, guid: 60d76faf12da9442eb6e5b99ce1c47b4,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[16].key
+      value: 
+      objectReference: {fileID: -5484714200072474912, guid: 60d76faf12da9442eb6e5b99ce1c47b4,
+        type: 2}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 1051387449}
@@ -1035,6 +1083,11 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[8].value
       value: 
       objectReference: {fileID: 730800630}
+    - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[9].value
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 967551419414650630, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.size
@@ -1174,6 +1227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerDogState
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039184091368635841, guid: 97225842c6a364f7bac013fb78e72dcb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7039184091368635841, guid: 97225842c6a364f7bac013fb78e72dcb,
         type: 3}
