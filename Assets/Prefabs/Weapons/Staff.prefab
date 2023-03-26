@@ -230,4 +230,4 @@ MonoBehaviour:
   type: 4
   insanityCost: 15
   weaponAmmo: 10
-  icon: {fileID: 2800000, guid: 9aa4348290784b2468144a97eb15d8d7, type: 3}
+  icon: {fileID: 2800000, guid: 0112ed9a7a8974a34aab2434a16772dc, type: 3}
