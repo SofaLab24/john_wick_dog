@@ -54,7 +54,7 @@ public class PlayerCombat : MonoBehaviour
     IEnumerator smokee()
     {
         yield return new WaitForSeconds(.5f);
-        barsController.ChangeWeapon(smokeIcon, "Stinky death", 0);
+        barsController.ChangeWeapon(smokeIcon, "The spark of boundless gas", 0);
     }
 
     void Update()
