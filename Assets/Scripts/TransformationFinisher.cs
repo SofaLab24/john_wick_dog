@@ -1,18 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TransformationFinisher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public StateController stateController;
 
-    // Update is called once per frame
-    void Update()
+    public void OnEnable()
     {
-        
+        stateController.FinishTransformation();
     }
 }

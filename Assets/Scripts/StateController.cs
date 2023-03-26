@@ -18,6 +18,9 @@ public class StateController : MonoBehaviour
 
     private PlayerStats stats;
     public CameraMovement cameraMovement;
+    
+    private Movement dogMovement;
+    private Movement johnMovement;
 
     private Vector3 position;
 
@@ -28,7 +31,7 @@ public class StateController : MonoBehaviour
     public List<AudioClip> johnMusic;
 
     public PlayableDirector transformationTimeline;
-
+    private Vector3 betweenTransformPosition;
 
     void Awake()
     {
@@ -58,21 +61,34 @@ public class StateController : MonoBehaviour
     }
 
 
-    public void FinishFirstTransformation()
+    public void FinishTransformation()
     {
-        Destroy(dogState);
+        johnState.transform.position = new Vector3(betweenTransformPosition.x, 1, betweenTransformPosition.z);
+        
+        playerCam.Follow = johnState.transform;
+        dogMovement.enabled = true;
+        johnMovement.enabled = true;
         dogState.SetActive(false);
+        ChangeAllStats(true);
+        Destroy(dogState);
+
     }
     public void ChangeToJohn()
     {
         if (firstJohn)
         {
-            transformationTimeline.Play();
-            firstJohn = false;
-            johnState.transform.position = dogState.transform.position;
+            dogMovement = dogState.GetComponent<Movement>();
+            dogMovement.enabled = false;
+            firstJohn = false; // a shit ton of extra rewriting required to enable it more than once, fuck that
+            betweenTransformPosition = dogState.transform.position;
+            johnState.transform.position = betweenTransformPosition;
             johnState.SetActive(true);
+            johnMovement = johnState.GetComponent<Movement>();
+            johnMovement.enabled = false;
+            soundManager.Play2Music(johnMusic[0], johnMusic[1]);
+            transformationTimeline.Play();
+
             //dogState.SetActive(false);
-            ChangeAllStats(true);
         }
         else
         {
