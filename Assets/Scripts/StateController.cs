@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class StateController : MonoBehaviour
     [SerializeField] private GameObject dogState;
 
     [SerializeField] private GameObject johnState;
+    public CinemachineVirtualCamera playerCam;
 
     public bool isJohn = false;
 
@@ -34,12 +36,15 @@ public class StateController : MonoBehaviour
     void SpawnDog(Vector3 position)
     {
         dogState = Instantiate(dog, position, quaternion.identity);
+        playerCam.Follow = dogState.transform;
+        
         soundManager.Play2Music(dogMusic[0], dogMusic[1]);
     }
     
     void SpawnJohn(Vector3 position)
     {
         johnState = Instantiate(john, position, quaternion.identity);
+        playerCam.Follow = johnState.transform;
         soundManager.Play2Music(johnMusic[0], johnMusic[1]);
     }
     

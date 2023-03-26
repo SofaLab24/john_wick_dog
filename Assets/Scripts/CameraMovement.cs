@@ -15,7 +15,7 @@ public class CameraMovement : MonoBehaviour
     
     void Update()
     {
-        transform.position = player.position + camOffset;
+        // transform.position = player.position + camOffset;
     }
 
     public void FindPlayer()
