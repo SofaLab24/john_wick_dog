@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365236319}
   - component: {fileID: 365236318}
+  - component: {fileID: 365236320}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -172,6 +173,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365236320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365236317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906bb93fa913e41e085d4a6ecf215efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgrounds:
+  - {fileID: 2800000, guid: 810a6411673aa435ab7df859b9de0549, type: 3}
+  - {fileID: 2800000, guid: 03fd5d00dc0ab452486a20651426dab5, type: 3}
+  switchTimer: 5
 --- !u!1 &659633677
 GameObject:
   m_ObjectHideFlags: 0
