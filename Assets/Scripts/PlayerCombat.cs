@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     public WeaponType currentWeapon = WeaponType.None;
 
     private Movement _movement;
-    public GameObject projectile, explosive;
+    public GameObject projectile, explosive, ult;
 
     public float throwForce = 100f;
 
@@ -37,6 +37,8 @@ public class PlayerCombat : MonoBehaviour
     public float meeleCooldown = 0.5f;
     public Animator anim;
     PlayerStats stats;
+
+    public Texture2D smokeIcon, johnIcon;
     
     void Start()
     {
@@ -44,6 +46,15 @@ public class PlayerCombat : MonoBehaviour
         _movement = GetComponent<Movement>();
         barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
         stats = GameObject.FindWithTag("GameController").GetComponent<PlayerStats>();
+        stateController = GameObject.FindWithTag("GameController").GetComponent<StateController>();
+        StartCoroutine(smokee());
+
+    }
+
+    IEnumerator smokee()
+    {
+        yield return new WaitForSeconds(.5f);
+        barsController.ChangeWeapon(smokeIcon, "Stinky death", 0);
     }
 
     void Update()
@@ -94,6 +105,15 @@ public class PlayerCombat : MonoBehaviour
                     go.GetComponent<Rigidbody>().AddForce(go.transform.forward * throwForce);
                     Destroy(go, 3f);
                 }
+                if (currentWeapon == WeaponType.Ult)
+                {
+                    stats.LoseInsanity(5);
+                    ammoLeft--;
+                    barsController.UpdateAmmo(ammoLeft);
+                    GameObject go = Instantiate(ult, transform.position,Quaternion.identity);
+                    
+                    Destroy(go, 2f);
+                }
 
             }
 
@@ -127,6 +147,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (!isAttacking)
             {
+                barsController.ChangeWeapon(johnIcon, "Pencil", 0);
                 StartCoroutine(JohnAttack());
                 isAttacking = true;
             }

@@ -169,6 +169,7 @@ MonoBehaviour:
   rotationSpeed: 0.05
   movement: {x: 0, y: 0, z: 0}
   anim: {fileID: 1366772407}
+  enabled: 1
 --- !u!143 &7039184091368635840
 CharacterController:
   m_ObjectHideFlags: 0
@@ -205,21 +206,23 @@ MonoBehaviour:
     type: 3}
   explosive: {fileID: 4852615644000494834, guid: 8fe1b9193f35543da90e246a9c1811d9,
     type: 3}
+  ult: {fileID: 7150697078768348429, guid: 6d6315021a876414cafdf4164e251da7, type: 3}
   throwForce: 100
   spawnLocation: {fileID: 7039184092014886837}
   fartSpawn: {fileID: 7039184091159379889}
   singedFart: {fileID: 1887447500331485857, guid: 05b57e799d8ab47d589a3aee412aaf03,
     type: 3}
   beam: {fileID: 4053321782432214238, guid: fe4708e2b29e74da2ba7559d8367ad52, type: 3}
+  slash: {fileID: 0}
   fartRate: 0.1
   fartLife: 3
   ammoLeft: 0
   stateController: {fileID: 0}
   worldPosition: {x: 0, y: 0, z: 0}
-  meeleAttack: {fileID: 0}
   meeleCooldown: 0.5
   anim: {fileID: 0}
-  stats: {fileID: 0}
+  smokeIcon: {fileID: 2800000, guid: 591b170ac45244d0c96d0223fd38555a, type: 3}
+  johnIcon: {fileID: 2800000, guid: c4738c26e800c411a976b6da6ed5d86b, type: 3}
 --- !u!54 &7685846082667755693
 Rigidbody:
   m_ObjectHideFlags: 0

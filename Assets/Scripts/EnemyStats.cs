@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    [Range(0, 100)]
+    [Range(0, 500)]
     public int Health = 100;
 
     [Range(0, 100)] 

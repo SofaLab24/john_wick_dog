@@ -119,3 +119,4 @@ MonoBehaviour:
   type: 1
   insanityCost: 5
   weaponAmmo: 50
+  icon: {fileID: 2800000, guid: 417b9db5b7a0a4db2ad2b042c6e26b44, type: 3}

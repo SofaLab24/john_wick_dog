@@ -10,6 +10,7 @@ public class WeaponPickup : MonoBehaviour
     public int insanityCost = 10;
     public int weaponAmmo = 10;
     private StateController StateController;
+    public Texture2D icon;
     
 
     private void OnTriggerEnter(Collider other)
@@ -20,7 +21,7 @@ public class WeaponPickup : MonoBehaviour
             other.gameObject.GetComponent<PlayerCombat>().currentWeapon = type;
             other.gameObject.GetComponent<PlayerCombat>().ammoLeft = weaponAmmo;
             
-            barsController.ChangeWeapon(new Texture2D(256, 256), $"{type}", weaponAmmo);
+            barsController.ChangeWeapon(icon, $"{type}", weaponAmmo);
             
             //other.gameObject.GetComponent<PlayerStats>().LoseInsanity(insanityCost);
             Destroy(gameObject);
