@@ -18,10 +18,15 @@ public class StateController : MonoBehaviour
 
     public GameObject dog, john;
 
-    
+    private SoundManager soundManager;
+    public List<AudioClip> dogMusic;
+    public List<AudioClip> johnMusic;
+
+
     void Awake()
     {
         stats = GetComponent<PlayerStats>();
+        soundManager = GetComponent<SoundManager>();
         isJohn = false;
         SpawnDog(Vector3.zero);
     }
@@ -29,11 +34,13 @@ public class StateController : MonoBehaviour
     void SpawnDog(Vector3 position)
     {
         dogState = Instantiate(dog, position, quaternion.identity);
+        soundManager.Play2Music(dogMusic[0], dogMusic[1]);
     }
     
     void SpawnJohn(Vector3 position)
     {
         johnState = Instantiate(john, position, quaternion.identity);
+        soundManager.Play2Music(johnMusic[0], johnMusic[1]);
     }
     
 
