@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   instanity: 100
+  recall: {fileID: 2185676594773119156, guid: b197f2b66e796ae44b19160067bc1189, type: 3}
   barsController: {fileID: 0}
   stateController: {fileID: 2075497994422576216}
 --- !u!114 &9189861936761350152
