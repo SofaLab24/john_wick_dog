@@ -170,6 +170,7 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   anim: {fileID: 1366772407}
   enabled: 1
+  isDogWalking: 0
 --- !u!143 &7039184091368635840
 CharacterController:
   m_ObjectHideFlags: 0
@@ -350,6 +351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JohnWickDog_wok
       objectReference: {fileID: 0}
+    - target: {fileID: 7205140776170859923, guid: 9776697984d494f0ea1bf4077942a40f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6918bc63cf3cec44d917964d42030386, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9776697984d494f0ea1bf4077942a40f, type: 3}
 --- !u!1 &5022003945152261547 stripped
