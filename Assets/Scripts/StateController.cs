@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class StateController : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class StateController : MonoBehaviour
 
     [SerializeField] private GameObject johnState;
     public CinemachineVirtualCamera playerCam;
+    private bool firstJohn;
 
     public bool isJohn = false;
 
@@ -24,13 +27,19 @@ public class StateController : MonoBehaviour
     public List<AudioClip> dogMusic;
     public List<AudioClip> johnMusic;
 
+    public PlayableDirector transformationTimeline;
+
 
     void Awake()
     {
         stats = GetComponent<PlayerStats>();
         soundManager = GetComponent<SoundManager>();
         isJohn = false;
-        SpawnDog(Vector3.zero);
+        firstJohn = true;
+        playerCam.Follow = dogState.transform;
+        soundManager.Play2Music(dogMusic[0], dogMusic[1]);
+
+        //SpawnDog(Vector3.zero);
     }
 
     void SpawnDog(Vector3 position)
@@ -47,27 +56,34 @@ public class StateController : MonoBehaviour
         playerCam.Follow = johnState.transform;
         soundManager.Play2Music(johnMusic[0], johnMusic[1]);
     }
-    
 
+
+    public void FinishFirstTransformation()
+    {
+        Destroy(dogState);
+        dogState.SetActive(false);
+    }
     public void ChangeToJohn()
     {
-        position = dogState.transform.position;
-        SpawnJohn(position);
-        dogState.SetActive(false);
-       // StartCoroutine(stopMovementJohn());
-       //==========
-        // johnState.SetActive(true);
-        //
-        //
-        // position = dogState.transform.position;
-        // johnState.transform.position = position;
-        // dogState.SetActive(false);
-        //=========
-        
-        ChangeAllStats(true);
-        cameraMovement.FindPlayer();
-        Destroy(dogState);
-        //johnState.gameObject.GetComponent<Movement>().enabled = true;
+        if (firstJohn)
+        {
+            transformationTimeline.Play();
+            firstJohn = false;
+            johnState.transform.position = dogState.transform.position;
+            johnState.SetActive(true);
+            //dogState.SetActive(false);
+            ChangeAllStats(true);
+        }
+        else
+        {
+            firstJohn = false;
+            position = dogState.transform.position;
+            SpawnJohn(position);
+            dogState.SetActive(false);
+            ChangeAllStats(true);
+            Destroy(dogState);
+        }
+
     }
     public void ChangeToDog()
     {
