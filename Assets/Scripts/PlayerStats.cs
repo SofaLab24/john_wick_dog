@@ -10,9 +10,10 @@ public class PlayerStats : MonoBehaviour
 
     [Range(0, 100)] 
     public int instanity = 100;
-
+    public GameObject recall;
     public BarsController barsController;
     public StateController stateController;
+    private bool isNotDead = true;
 
     private void Start()
     {
@@ -31,10 +32,14 @@ public class PlayerStats : MonoBehaviour
     {
         Health -= damage;
         Debug.Log($"Took {damage} damage.  Current health: {Health}");
-        if (Health <= 0)
+        if (Health <= 0 && isNotDead)
         {
+            isNotDead = false;
             Debug.Log("GAY!!");
-            Time.timeScale = 0f;
+            GameObject player = GameObject.FindWithTag("Player");
+            Instantiate(recall, player.transform.position, Quaternion.identity);
+            //////////////////// restart screen goes here(maybe)
+            // Time.timeScale = 0f;
         }
         barsController.UpdateHealthBar(Health);
     }
