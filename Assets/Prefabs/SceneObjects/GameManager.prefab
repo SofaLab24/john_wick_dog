@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2075497994422576219}
   - component: {fileID: 2075497994422576218}
   - component: {fileID: 2075497994422576216}
+  - component: {fileID: 1818194789}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -65,3 +66,21 @@ MonoBehaviour:
   johnState: {fileID: 0}
   isJohn: 0
   cameraMovement: {fileID: 0}
+  dog: {fileID: 7039184091368635453, guid: 97225842c6a364f7bac013fb78e72dcb, type: 3}
+  john: {fileID: 7738266561037779187, guid: be9d9e4a9065a490b8fe87640536460c, type: 3}
+--- !u!114 &1818194789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075497994422576229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75e7d0e3c18944c79c8e2277cf58214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  instanity: 100
+  barsController: {fileID: 0}
+  stateController: {fileID: 2075497994422576216}

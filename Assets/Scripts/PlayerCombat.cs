@@ -46,6 +46,7 @@ public class PlayerCombat : MonoBehaviour
         _movement = GetComponent<Movement>();
         barsController = GameObject.FindWithTag("UI").GetComponent<BarsController>();
         stats = GameObject.FindWithTag("GameController").GetComponent<PlayerStats>();
+        stateController = GameObject.FindWithTag("GameController").GetComponent<StateController>();
         StartCoroutine(smokee());
 
     }

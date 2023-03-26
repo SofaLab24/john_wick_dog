@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
@@ -8,45 +9,69 @@ public class StateController : MonoBehaviour
 
     [SerializeField] private GameObject johnState;
 
-    public bool isJohn;
+    public bool isJohn = false;
 
     private PlayerStats stats;
     public CameraMovement cameraMovement;
 
     private Vector3 position;
 
+    public GameObject dog, john;
+
     
-    void Start()
+    void Awake()
     {
         stats = GetComponent<PlayerStats>();
+        isJohn = false;
+        SpawnDog(Vector3.zero);
     }
 
+    void SpawnDog(Vector3 position)
+    {
+        dogState = Instantiate(dog, position, quaternion.identity);
+    }
+    
+    void SpawnJohn(Vector3 position)
+    {
+        johnState = Instantiate(john, position, quaternion.identity);
+    }
     
 
     public void ChangeToJohn()
     {
-        StartCoroutine(stopMovementJohn());
-        johnState.gameObject.GetComponent<Movement>().enabled = false;
-        johnState.SetActive(true);
-        
-        
         position = dogState.transform.position;
-        johnState.transform.position = position;
+        SpawnJohn(position);
         dogState.SetActive(false);
+       // StartCoroutine(stopMovementJohn());
+       //==========
+        // johnState.SetActive(true);
+        //
+        //
+        // position = dogState.transform.position;
+        // johnState.transform.position = position;
+        // dogState.SetActive(false);
+        //=========
         
         ChangeAllStats(true);
         cameraMovement.FindPlayer();
+        Destroy(dogState);
         //johnState.gameObject.GetComponent<Movement>().enabled = true;
     }
     public void ChangeToDog()
     {
-        StartCoroutine(stopMovementDog());
-        position = johnState.gameObject.transform.position;
-        dogState.SetActive(true);
-        dogState.gameObject.transform.position = position;
+       // StartCoroutine(stopMovementDog());
+        position = johnState.transform.position;
+        SpawnDog(position);
         johnState.SetActive(false);
+        
+        //=========
+        // dogState.SetActive(true);
+        // dogState.gameObject.transform.position = position;
+        // johnState.SetActive(false);
+        //=========
         ChangeAllStats(false);
         cameraMovement.FindPlayer();
+        Destroy(johnState);
     }
 
     IEnumerator stopMovementJohn()
