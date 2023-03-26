@@ -160,7 +160,7 @@ public class PlayerCombat : MonoBehaviour
     {
         anim.SetTrigger("Attack");
         slash.SetActive(true);
-        yield return new WaitForSeconds(meeleCooldown -0.5f);
+        yield return new WaitForSeconds(meeleCooldown);
         slash.SetActive(false);
         yield return new WaitForSeconds(meeleCooldown);
         StartCoroutine(JohnAttack());
